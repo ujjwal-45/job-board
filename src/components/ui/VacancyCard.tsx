@@ -1,118 +1,65 @@
 import AvatarIcon from "./Avatar";
-import { Card } from "./Card";
+import { LucideIcon } from "lucide-react";
+import { cn } from "../../lib/utils";
 import { Palette } from "lucide-react";
-import { ChevronRight } from "lucide-react";
 import { Bookmark } from "lucide-react";
 import { Button } from "./Button";
 
-const VacancyCard = () => {
+interface VacancyProps {
+  Company: string;
+  location: string;
+  JobTitle: string;
+  JobType: string;
+  sector: string;
+  icons: LucideIcon[]
+  totalApplicants: string;
+
+}
+
+const VacancyCard = ({ Company, location, JobTitle, JobType, sector, icons, totalApplicants }: VacancyProps) => {
   return (
-    <div className="flex flex-col items-center justify-center p-20 space-y-10 font-lexend tracking-tight ">
-      <div className="flex justify-center items-center gap-10">
-        {/* {1} */}
-        <Card className="w-[280px] h-auto p-2">
-          <div className="flex items-center space-x-12">
-            <div className="flex items-start mt-6">
-              <AvatarIcon className="h-10 w-10" icon={Palette} />
-              <div>
-                <p>Microsoft</p>
-                <p className="text-xs text-neutral-500">Bengaluru, India</p>
-              </div>
-            </div>
-            <div className="flex justify-end items-end">
-              <Bookmark className="w-5" />
-            </div>
+    <div className="inline-block border-2 border-black shadow-md transition-all hover:shadow-xs p-4 ">
+      <div className="flex items-center justify-between p-2">
+        <div className="flex items-start gap-2">
+          <AvatarIcon icon={Palette} />
+          <div className="flex flex-col">
+            <h1>{Company}</h1>
+            <p className="font-light text-xs text-gray-500">{location}</p>
           </div>
-          <Card.Title>SDE Intern</Card.Title>
-          <div className="flex w-auto items-center space-x-6">
-            <Card.Description className="bg-blue-400 rounded-md p-1 text-xs text-foreground">
-              Full time
-            </Card.Description>
-            <Card.Description className="bg-red-400 rounded-md p-1 text-xs text-foreground">
-              Tech
-            </Card.Description>
-            <Button className="">Apply</Button>
-          </div>
-        </Card>
-        {/* {2} */}
-        <Card className="w-[240px] h-auto p-2">
-          <div className="flex items-start mt-6">
-            <AvatarIcon className="h-15 w-15" icon={Palette} />
-          </div>
-          <Card.Title>Design</Card.Title>
-          <div className="flex items-center space-x-6">
-            <Card.Description>New 120 jobs posted</Card.Description>
-            <ChevronRight className="h-10 w-5" />
-          </div>{" "}
-        </Card>
-        {/* {3} */}
-        <Card className="w-[240px] h-auto p-2">
-          <div className="flex items-start mt-6">
-            <AvatarIcon className="h-15 w-15" icon={Palette} />
-          </div>
-          <Card.Title>Design</Card.Title>
-          <div className="flex items-center space-x-6">
-            <Card.Description>New 120 jobs posted</Card.Description>
-            <ChevronRight className="h-10 w-5" />
-          </div>{" "}
-        </Card>
-        {/* {4} */}
-        <Card className="w-[240px] h-auto p-2">
-          <div className="flex items-start mt-6">
-            <AvatarIcon className="h-15 w-15" icon={Palette} />
-          </div>
-          <Card.Title>Design</Card.Title>
-          <div className="flex items-center space-x-6">
-            <Card.Description>New 120 jobs posted</Card.Description>
-            <ChevronRight className="h-10 w-5" />
-          </div>{" "}
-        </Card>
+        </div>
+        <div className="flex items-end">
+          <Bookmark className="h-5 w-5" />
+        </div>
       </div>
-      <div className="flex justify-center items-center gap-10">
-        {/* {5} */}
-        <Card className="w-[240px] h-auto p-2">
-          <div className="flex items-start mt-6">
-            <AvatarIcon className="h-15 w-15" icon={Palette} />
-          </div>
-          <Card.Title>Design</Card.Title>
-          <div className="flex items-center space-x-6">
-            <Card.Description>New 120 jobs posted</Card.Description>
-            <ChevronRight className="h-10 w-5" />
-          </div>{" "}
-        </Card>
-        {/* {6} */}
-        <Card className="w-[240px] h-auto p-2">
-          <div className="flex items-start mt-6">
-            <AvatarIcon className="h-15 w-15" icon={Palette} />
-          </div>
-          <Card.Title>Design</Card.Title>
-          <div className="flex items-center space-x-6">
-            <Card.Description>New 120 jobs posted</Card.Description>
-            <ChevronRight className="h-10 w-5" />
-          </div>
-        </Card>
-        {/* {7} */}
-        <Card className="w-[240px] h-auto p-2 ">
-          <div className="flex items-start mt-6">
-            <AvatarIcon className="h-15 w-15" icon={Palette} />
-          </div>
-          <Card.Title>Design</Card.Title>
-          <div className="flex items-center space-x-6">
-            <Card.Description>New 120 jobs posted</Card.Description>
-            <ChevronRight className="h-10 w-5" />
-          </div>
-        </Card>
-        {/* {8} */}
-        <Card className="w-[240px] h-auto p-2 ">
-          <div className="flex items-start mt-6">
-            <AvatarIcon className="h-15 w-15" icon={Palette} />
-          </div>
-          <Card.Title>Design</Card.Title>
-          <div className="flex items-center space-x-6">
-            <Card.Description>New 120 jobs posted</Card.Description>
-            <ChevronRight className="h-10 w-5" />
-          </div>
-        </Card>
+      <div className="flex flex-col items-start p-2">
+        <h1 className="text-2xl font-medium">{JobTitle}</h1>
+        <div className="flex mt-2 gap-2">
+          <p className="bg-orange-200 py-1 px-2 rounded-xl text-xs">
+            {JobType}
+          </p>
+          <p className="bg-blue-200 py-1 px-2 rounded-xl text-xs">{sector}</p>
+        </div>
+      </div>
+      <div className="flex gap-3 p-2">
+        <div className="flex items-center -space-x-3">
+          {icons?.slice(0, 3).map((Icon, idx) => (
+            <div
+              className={cn(
+                "h-6 w-6 rounded-full border-2 border-white bg-red-300 flex items-center justify-center text-black ",
+                idx !== 0 && "z-10"
+              )}
+            >
+              <Icon className="h-4 w-4 " />
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center justify-center font-light ">
+          <p>{totalApplicants}</p>
+        </div>
+      </div>
+      <div className="flex gap-3 p-2">
+        <Button className="bg-purple-400" size={"xl"}>Apply</Button>
+        <Button variant={"outline"}>Details</Button>
       </div>
     </div>
   );
