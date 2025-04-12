@@ -104,7 +104,7 @@ const Hero = () => {
         <Categories />
         {/* Finding job sequence */}
 
-        <div className="mt-10 h-[480px]">
+        <div className="mt-10 h-[480px] font-lexend">
           <div className="flex flex-col justify-center items-center pt-24 mb-12">
             <h1 className="text-6xl font-bold">
               IT&apos;S NOW <span className="text-amber-200">SIMPLER</span>
